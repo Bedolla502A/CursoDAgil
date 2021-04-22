@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cursoDAgil.bd.mappers.GananciasMapper">
+  <resultMap id="BaseResultMap" type="cursoDAgil.bd.domain.Ganancias">
+    <id column="idGanancia" jdbcType="INTEGER" property="idGanancia" />
+    <result column="ventaId" jdbcType="INTEGER" property="ventaId" />
+  	<result column="totalGanancia" jdbcType="DOUBLE" property="totalGanancia" />
+  	<result column="fecha" jdbcType="DATE" property="fecha" />
+  	<result column="sumaTotalGanancia" jdbcType="DATE" property="sumaTotalGanancia" />
+  </resultMap>
+  
+  <resultMap type="cursoDAgil.bd.domain.Ventas" id="ResultVentasGanancia">
+  	<id column="idVenta" jdbcType="INTEGER" property="idVenta" />
+    <result column="productoId" jdbcType="INTEGER" property="productoId" />
+  	<result column="cantidad" jdbcType="DOUBLE" property="cantidad" />
+  </resultMap>
+  
+  <resultMap type="cursoDAgil.bd.domain.Ventas" id="VentasResultMap">
+  	<id column="idVenta" jdbcType="INTEGER" property="idVenta" />
+    <result column="productoId" jdbcType="INTEGER" property="productoId" />
+  	<result column="cantidad" jdbcType="DOUBLE" property="cantidad" />
+  </resultMap>
+  
+  <select id="ListarVentas" resultMap="ResultVentasGanancia">
+  		SELECT 
+  		v.idVenta,
+  		d.productoId.
+  		v.cantidad,
+  		d.idDireccion,
+  		dir.calle, 
+  		dir.numero, 
+  		dir.colonia, 
+  		dir.ciudad, 
+  		dir.estado, 
+  		dir.pais, 
+  		dir.codigoPostal 
+  		FROM equipo8.ventas v INNER JOIN ganancia AS g ON cli.idDireccion = d.idDireccion
+  </select>
+</mapper>
